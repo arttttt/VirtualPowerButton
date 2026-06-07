@@ -7,6 +7,7 @@
     <string name="shortcut_already_exists">Shortcut is already created</string>
     <string name="admin_permission_required">Please enable Device Admin permission first</string>
     <string name="accessibility_service_description">Required for power menu functionality</string>
+    <string name="accessibility_service_summary">Lets the app lock the screen and open the power menu on demand</string>
     <string name="accessibility_permission_required">Please enable accessibility service for power menu</string>
     <string name="lock_screen">Lock Screen</string>
     <string name="power_menu">Power Menu</string>
