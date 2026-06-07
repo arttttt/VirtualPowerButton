@@ -9,7 +9,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledTonalButton
@@ -131,7 +131,7 @@ class MainActivity : ComponentActivity() {
 
             ElevatedButton(
                 onClick = onRequestPermission,
-                modifier = Modifier.width(200.dp),
+                modifier = Modifier.widthIn(min = 200.dp),
             ) {
                 Text(text = stringResource(R.string.request_accessibility))
             }
@@ -150,7 +150,7 @@ class MainActivity : ComponentActivity() {
         ) {
             FilledTonalButton(
                 onClick = onToggleShortcut,
-                modifier = Modifier.width(200.dp)
+                modifier = Modifier.widthIn(min = 200.dp),
             ) {
                 Text(
                     text = stringResource(
