@@ -1,51 +1,50 @@
 # Virtual Power Button
 
-Virtual Power Button is an Android application that emulates power button functionality for devices with faulty or broken physical power buttons. It provides easy access to screen locking and power menu options through a convenient shortcut.
+Virtual Power Button is an Android application that emulates power-button functionality for devices with a faulty or broken physical power button. It provides quick access to locking the screen and to the system power menu through Quick Settings tiles and app shortcuts.
 
 ## Features
 
-- Lock screen functionality
-- Access to power menu (power off, restart options)
-- Home screen shortcut for quick access
-- Material Design 3 UI with dynamic theming support
-- Dark/Light theme support
-- Android 12+ optimized
+- Lock the screen on demand
+- Open the system power menu (power off, restart options)
+- Two Quick Settings tiles — one to lock the screen, one to open the power menu
+- App shortcuts: long-press the app icon for "Lock Screen" and "Power Menu"
+- Haptic feedback for actions
+- Material Design 3 UI with dynamic color (Material You) and light/dark theme support
+- Localized into 10 languages (English, Russian, German, French, Spanish, Italian, Portuguese, Korean, Japanese, Simplified Chinese)
 
 ## Requirements
 
-- Android 12 or higher (API level 31+)
-- Accessibility Service permission
-- Shortcut support
+- Android 10 or higher (API level 29+)
+- Accessibility Service permission (required to lock the screen and open the power menu)
 
 ## Setup Instructions
 
-1. Launch the app
-2. Grant Accessibility Service permission when prompted
-    - This is required for power menu functionality
-    - The app will redirect you to the Accessibility Settings
-    - Find "Virtual Power Button" in the list and enable it
-3. Create a shortcut using the "Create Shortcut" button in the app
-4. The shortcut will appear on your home screen
+1. Launch the app.
+2. Grant the Accessibility Service permission when prompted:
+    - The app redirects you to the system Accessibility settings.
+    - Find "Virtual Power Button" in the list and enable it.
+3. Trigger actions from either:
+    - the **Quick Settings tiles** (add them from the Quick Settings editor), or
+    - a **long-press on the app icon**, then choose "Lock Screen" or "Power Menu".
 
 ## How It Works
 
-The app uses Android's Accessibility Service API to provide power button functionality:
+The app uses Android's Accessibility Service API to provide power-button functionality:
 - Screen locking is implemented using `GLOBAL_ACTION_LOCK_SCREEN`
-- Power menu is accessed using `GLOBAL_ACTION_POWER_DIALOG`
-- Shortcuts are created using Android's ShortcutManager API
+- The power menu is opened using `GLOBAL_ACTION_POWER_DIALOG`
+
+Entry points — the Quick Settings tiles and the app shortcuts — route to the accessibility service, which performs the global action. App shortcuts are declared statically in `app/src/main/res/xml/shortcuts.xml` on the launcher activity.
 
 ## Build Instructions
 
-To build the project:
-
 1. Clone the repository:
 ```bash
-git clone https://github.com/[username]/virtual-power-button.git
+git clone https://github.com/arttttt/VirtualPowerButton.git
 ```
 
-2. Open the project in Android Studio
+2. Open the project in Android Studio.
 
-3. Build the project:
+3. Build a debug APK:
 ```bash
 ./gradlew assembleDebug
 ```
@@ -56,17 +55,16 @@ git clone https://github.com/[username]/virtual-power-button.git
 - Jetpack Compose
 - Material Design 3
 - ViewModel
-- Kotlin Flow
+- Kotlin Flow (StateFlow)
 - Android Accessibility Service
-- Android Shortcuts API
+- Quick Settings Tiles & static App Shortcuts
 
 ## Architecture
 
-The app follows MVVM architecture pattern and uses:
-- ViewModel for business logic
-- StateFlow for state management
-- Compose for declarative UI
-- Dependency Injection for better testability
+The app follows the MVVM pattern:
+- `ViewModel` holds the screen state
+- `StateFlow` for state management
+- Jetpack Compose for the declarative UI
 
 ## Contributing
 
