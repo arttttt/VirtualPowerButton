@@ -1,0 +1,25 @@
+<resources>
+
+    <string name="app_name">仮想電源ボタン</string>
+
+    <!-- Accessibility service -->
+    <string name="accessibility_service_description">電源メニューの機能に必要です</string>
+    <string name="accessibility_service_summary">アプリが画面をロックし、必要に応じて電源メニューを開けるようにします</string>
+    <string name="accessibility_permission_explanation">電源メニューを使うにはユーザー補助サービスが必要です</string>
+    <string name="accessibility_permission_required">電源メニューのためにユーザー補助サービスを有効にしてください</string>
+    <string name="request_accessibility">ユーザー補助を有効にする</string>
+
+    <!-- Actions -->
+    <string name="lock_screen">画面をロック</string>
+    <string name="power_menu">電源メニュー</string>
+    <string name="power_button">電源ボタン</string>
+
+    <!-- Quick Settings tiles -->
+    <string name="tile_setup_required">タップして設定</string>
+
+    <!-- Home screen icon -->
+    <string name="shortcut_add">ホーム画面にアイコンを追加</string>
+    <string name="shortcut_remove">ホーム画面のアイコンを削除</string>
+    <string name="shortcut_hint">タップすると画面をロックするアイコンをホーム画面に追加します</string>
+
+</resources>
