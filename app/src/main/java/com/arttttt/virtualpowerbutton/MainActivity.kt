@@ -56,7 +56,7 @@ class MainActivity : ComponentActivity() {
                 MainScreen(
                     uiState = uiState,
                     onRequestAccessibility = viewModel::requestAccessibilityPermission,
-                    onCreateShortcut = viewModel::createShortcut
+                    onToggleShortcut = viewModel::toggleShortcut
                 )
             }
         }
@@ -73,7 +73,7 @@ class MainActivity : ComponentActivity() {
         modifier: Modifier = Modifier,
         uiState: MainUiState,
         onRequestAccessibility: () -> Unit,
-        onCreateShortcut: () -> Unit,
+        onToggleShortcut: () -> Unit,
     ) {
         Scaffold(
             modifier = modifier,
@@ -102,7 +102,7 @@ class MainActivity : ComponentActivity() {
                 } else {
                     ShortcutSection(
                         isShortcutCreated = uiState.isShortcutCreated,
-                        onCreateShortcut = onCreateShortcut
+                        onToggleShortcut = onToggleShortcut
                     )
                 }
             }
@@ -141,7 +141,7 @@ class MainActivity : ComponentActivity() {
     @Composable
     private fun ShortcutSection(
         isShortcutCreated: Boolean,
-        onCreateShortcut: () -> Unit,
+        onToggleShortcut: () -> Unit,
         modifier: Modifier = Modifier
     ) {
         Column(
@@ -149,22 +149,23 @@ class MainActivity : ComponentActivity() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             FilledTonalButton(
-                onClick = onCreateShortcut,
-                enabled = !isShortcutCreated,
+                onClick = onToggleShortcut,
                 modifier = Modifier.width(200.dp)
             ) {
-                Text(text = stringResource(R.string.create_shortcut))
-            }
-
-            if (isShortcutCreated) {
                 Text(
-                    text = stringResource(R.string.shortcut_already_exists),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(top = 8.dp)
+                    text = stringResource(
+                        if (isShortcutCreated) R.string.shortcut_remove else R.string.shortcut_add
+                    )
                 )
             }
+
+            Text(
+                text = stringResource(R.string.shortcut_hint),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.padding(top = 8.dp)
+            )
         }
     }
 }

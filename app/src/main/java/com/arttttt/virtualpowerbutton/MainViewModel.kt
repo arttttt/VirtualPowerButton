@@ -29,11 +29,16 @@ class MainViewModel(
         accessibilityManager.requestAccessibilityPermission()
     }
 
-    fun createShortcut() {
-        if (canCreateShortcut()) {
+    fun toggleShortcut() {
+        if (!accessibilityManager.isAccessibilityEnabled) return
+
+        if (shortcutManager.isShortcutCreated()) {
+            shortcutManager.resetShortcutState()
+        } else {
             shortcutManager.createShortcut()
-            updateState()
         }
+
+        updateState()
     }
 
     fun updateState() {
@@ -43,9 +48,5 @@ class MainViewModel(
                 isShortcutCreated = shortcutManager.isShortcutCreated()
             )
         }
-    }
-
-    private fun canCreateShortcut(): Boolean {
-        return accessibilityManager.isAccessibilityEnabled
     }
 }
