@@ -1,8 +1,10 @@
 package com.arttttt.virtualpowerbutton.utils
 
 import android.content.Context
+import android.os.Build
 import android.os.VibrationEffect
 import android.os.Vibrator
+import android.os.VibratorManager
 import androidx.core.content.getSystemService
 import kotlin.properties.Delegates
 
@@ -33,8 +35,13 @@ object VibrationManager {
 
     private var context: Context by Delegates.notNull()
 
-    private val vibrator by lazy {
-        context.getSystemService<Vibrator>()!!
+    private val vibrator: Vibrator by lazy {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            context.getSystemService<VibratorManager>()!!.defaultVibrator
+        } else {
+            @Suppress("DEPRECATION")
+            context.getSystemService<Vibrator>()!!
+        }
     }
 
     fun init(context: Context) {
