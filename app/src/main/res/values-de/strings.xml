@@ -17,9 +17,8 @@
     <!-- Quick Settings tiles -->
     <string name="tile_setup_required">Zum Einrichten tippen</string>
 
-    <!-- Home screen icon -->
-    <string name="shortcut_add">Startbildschirm-Symbol hinzufügen</string>
-    <string name="shortcut_remove">Startbildschirm-Symbol entfernen</string>
-    <string name="shortcut_hint">Fügt ein Symbol zum Startbildschirm hinzu, das den Bildschirm beim Tippen sperrt</string>
+    <!-- Main screen, service enabled -->
+    <string name="service_enabled">Bedienungshilfen-Dienst aktiviert</string>
+    <string name="usage_hint">Sperre den Bildschirm oder öffne das Power-Menü über die Schnelleinstellungen-Kacheln oder durch langes Drücken des App-Symbols.</string>
 
 </resources>

@@ -17,9 +17,8 @@
     <!-- Quick Settings tiles -->
     <string name="tile_setup_required">タップして設定</string>
 
-    <!-- Home screen icon -->
-    <string name="shortcut_add">ホーム画面にアイコンを追加</string>
-    <string name="shortcut_remove">ホーム画面のアイコンを削除</string>
-    <string name="shortcut_hint">タップすると画面をロックするアイコンをホーム画面に追加します</string>
+    <!-- Main screen, service enabled -->
+    <string name="service_enabled">ユーザー補助サービスが有効です</string>
+    <string name="usage_hint">クイック設定タイル、またはアプリアイコンの長押しで、画面をロックしたり電源メニューを開いたりできます。</string>
 
 </resources>

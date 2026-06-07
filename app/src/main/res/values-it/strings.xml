@@ -17,9 +17,8 @@
     <!-- Quick Settings tiles -->
     <string name="tile_setup_required">Tocca per configurare</string>
 
-    <!-- Home screen icon -->
-    <string name="shortcut_add">Aggiungi icona alla schermata Home</string>
-    <string name="shortcut_remove">Rimuovi icona dalla schermata Home</string>
-    <string name="shortcut_hint">Aggiunge un\'icona alla schermata Home che blocca lo schermo al tocco</string>
+    <!-- Main screen, service enabled -->
+    <string name="service_enabled">Servizio di accessibilità attivato</string>
+    <string name="usage_hint">Blocca lo schermo o apri il menu di accensione dalle schede delle Impostazioni rapide o tenendo premuta l\'icona dell\'app.</string>
 
 </resources>

@@ -17,9 +17,8 @@
     <!-- Quick Settings tiles -->
     <string name="tile_setup_required">Toque para configurar</string>
 
-    <!-- Home screen icon -->
-    <string name="shortcut_add">Adicionar ícone à tela inicial</string>
-    <string name="shortcut_remove">Remover ícone da tela inicial</string>
-    <string name="shortcut_hint">Adiciona um ícone à tela inicial que bloqueia a tela ao tocar</string>
+    <!-- Main screen, service enabled -->
+    <string name="service_enabled">Serviço de acessibilidade ativado</string>
+    <string name="usage_hint">Bloqueie a tela ou abra o menu de energia pelos blocos das Configurações rápidas ou mantendo pressionado o ícone do app.</string>
 
 </resources>

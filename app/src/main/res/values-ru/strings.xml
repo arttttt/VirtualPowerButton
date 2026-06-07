@@ -17,9 +17,8 @@
     <!-- Quick Settings tiles -->
     <string name="tile_setup_required">Нажмите для настройки</string>
 
-    <!-- Home screen icon -->
-    <string name="shortcut_add">Добавить значок на экран</string>
-    <string name="shortcut_remove">Убрать значок с экрана</string>
-    <string name="shortcut_hint">Добавляет на главный экран значок, который блокирует экран по нажатию</string>
+    <!-- Main screen, service enabled -->
+    <string name="service_enabled">Служба специальных возможностей включена</string>
+    <string name="usage_hint">Блокируйте экран или открывайте меню питания через плитки в шторке либо долгим нажатием на значок приложения.</string>
 
 </resources>

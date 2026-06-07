@@ -23,31 +23,18 @@
 
             </intent-filter>
 
-        </activity>
-
-        <activity
-            android:name=".PowerButtonActivity"
-            android:theme="@android:style/Theme.NoDisplay"
-            android:enabled="false"
-            android:excludeFromRecents="true"
-            android:exported="true"
-            android:label="@string/power_button"
-            android:noHistory="true">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-            <intent-filter>
-                <action android:name="android.intent.action.CREATE_SHORTCUT" />
-            </intent-filter>
-
             <meta-data
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
 
         </activity>
+
+        <activity
+            android:name=".PowerButtonActivity"
+            android:theme="@android:style/Theme.NoDisplay"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:noHistory="true" />
 
         <activity
             android:name=".InvisibleActivity"

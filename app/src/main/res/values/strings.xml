@@ -17,9 +17,8 @@
     <!-- Quick Settings tiles -->
     <string name="tile_setup_required">Tap to set up</string>
 
-    <!-- Home screen icon -->
-    <string name="shortcut_add">Add home screen icon</string>
-    <string name="shortcut_remove">Remove home screen icon</string>
-    <string name="shortcut_hint">Adds a home screen icon that locks the screen when tapped</string>
+    <!-- Main screen, service enabled -->
+    <string name="service_enabled">Accessibility service enabled</string>
+    <string name="usage_hint">Lock the screen or open the power menu from the Quick Settings tiles, or by long-pressing the app icon.</string>
 
 </resources>

@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -29,17 +28,15 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.arttttt.virtualpowerbutton.ui.theme.VirtualPowerButtonTheme
 import com.arttttt.virtualpowerbutton.utils.AccessibilityManager
-import com.arttttt.virtualpowerbutton.utils.ShortcutManager
 
 class MainActivity : ComponentActivity() {
 
     private val accessibilityManager by lazy { AccessibilityManager(this) }
-    private val shortcutHelper by lazy { ShortcutManager(this) }
     private val viewModel: MainViewModel by viewModels {
         object : ViewModelProvider.Factory {
             @Suppress("UNCHECKED_CAST")
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                return MainViewModel(accessibilityManager, shortcutHelper) as T
+                return MainViewModel(accessibilityManager) as T
             }
         }
     }
@@ -56,7 +53,6 @@ class MainActivity : ComponentActivity() {
                 MainScreen(
                     uiState = uiState,
                     onRequestAccessibility = viewModel::requestAccessibilityPermission,
-                    onToggleShortcut = viewModel::toggleShortcut
                 )
             }
         }
@@ -73,7 +69,6 @@ class MainActivity : ComponentActivity() {
         modifier: Modifier = Modifier,
         uiState: MainUiState,
         onRequestAccessibility: () -> Unit,
-        onToggleShortcut: () -> Unit,
     ) {
         Scaffold(
             modifier = modifier,
@@ -100,10 +95,7 @@ class MainActivity : ComponentActivity() {
                         onRequestPermission = onRequestAccessibility
                     )
                 } else {
-                    ShortcutSection(
-                        isShortcutCreated = uiState.isShortcutCreated,
-                        onToggleShortcut = onToggleShortcut
-                    )
+                    ServiceEnabledSection()
                 }
             }
         }
@@ -139,32 +131,29 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
-    private fun ShortcutSection(
-        isShortcutCreated: Boolean,
-        onToggleShortcut: () -> Unit,
+    private fun ServiceEnabledSection(
         modifier: Modifier = Modifier
     ) {
         Column(
             modifier = modifier,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            FilledTonalButton(
-                onClick = onToggleShortcut,
-                modifier = Modifier.widthIn(min = 200.dp),
-            ) {
-                Text(
-                    text = stringResource(
-                        if (isShortcutCreated) R.string.shortcut_remove else R.string.shortcut_add
-                    )
-                )
-            }
+            Text(
+                text = stringResource(R.string.service_enabled),
+                style = MaterialTheme.typography.titleMedium,
+                textAlign = TextAlign.Center,
+                color = MaterialTheme.colorScheme.onSurface,
+            )
 
             Text(
-                text = stringResource(R.string.shortcut_hint),
+                text = stringResource(R.string.usage_hint),
                 style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center,
-                modifier = Modifier.padding(top = 8.dp)
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(
+                    horizontal = 24.dp,
+                    vertical = 12.dp,
+                )
             )
         }
     }

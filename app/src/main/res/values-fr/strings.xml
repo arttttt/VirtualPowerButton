@@ -17,9 +17,8 @@
     <!-- Quick Settings tiles -->
     <string name="tile_setup_required">Appuyez pour configurer</string>
 
-    <!-- Home screen icon -->
-    <string name="shortcut_add">Ajouter une icône à l\'écran d\'accueil</string>
-    <string name="shortcut_remove">Supprimer l\'icône de l\'écran d\'accueil</string>
-    <string name="shortcut_hint">Ajoute une icône sur l\'écran d\'accueil qui verrouille l\'écran lorsqu\'on appuie dessus</string>
+    <!-- Main screen, service enabled -->
+    <string name="service_enabled">Service d\'accessibilité activé</string>
+    <string name="usage_hint">Verrouillez l\'écran ou ouvrez le menu d\'alimentation depuis les tuiles des Réglages rapides, ou en appuyant longuement sur l\'icône de l\'application.</string>
 
 </resources>

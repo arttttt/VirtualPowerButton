@@ -17,9 +17,8 @@
     <!-- Quick Settings tiles -->
     <string name="tile_setup_required">点按以设置</string>
 
-    <!-- Home screen icon -->
-    <string name="shortcut_add">添加主屏幕图标</string>
-    <string name="shortcut_remove">移除主屏幕图标</string>
-    <string name="shortcut_hint">在主屏幕添加一个点按即可锁屏的图标</string>
+    <!-- Main screen, service enabled -->
+    <string name="service_enabled">无障碍服务已启用</string>
+    <string name="usage_hint">通过快捷设置磁贴，或长按应用图标，即可锁定屏幕或打开电源菜单。</string>
 
 </resources>
