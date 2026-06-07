@@ -1,20 +1,23 @@
 <resources>
 
     <string name="app_name">Virtual Power Button</string>
-    <string name="admin_permission_explanation">Device administrator permission is required to lock the screen. This will allow the app to lock your screen on demand.</string>
-    <string name="request_permission">Grant Permission</string>
-    <string name="create_shortcut">Create Shortcut</string>
-    <string name="shortcut_already_exists">Shortcut is already created</string>
-    <string name="admin_permission_required">Please enable Device Admin permission first</string>
+
+    <!-- Accessibility service -->
     <string name="accessibility_service_description">Required for power menu functionality</string>
     <string name="accessibility_service_summary">Lets the app lock the screen and open the power menu on demand</string>
+    <string name="accessibility_permission_explanation">Accessibility service is required for power menu functionality</string>
     <string name="accessibility_permission_required">Please enable accessibility service for power menu</string>
+    <string name="request_accessibility">Enable Accessibility</string>
+
+    <!-- Actions -->
     <string name="lock_screen">Lock Screen</string>
     <string name="power_menu">Power Menu</string>
     <string name="power_button">Power Button</string>
-    <string name="accessibility_permission_explanation">Accessibility service is required for power menu functionality</string>
-    <string name="request_accessibility">Enable Accessibility</string>
+
+    <!-- Quick Settings tiles -->
     <string name="tile_setup_required">Tap to set up</string>
+
+    <!-- Home screen icon -->
     <string name="shortcut_add">Add home screen icon</string>
     <string name="shortcut_remove">Remove home screen icon</string>
     <string name="shortcut_hint">Adds a home screen icon that locks the screen when tapped</string>
