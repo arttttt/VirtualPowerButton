@@ -1,56 +1,40 @@
 package com.arttttt.virtualpowerbutton
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
+import com.arttttt.virtualpowerbutton.utils.mainActivityIntent
 
 class PowerButtonActivity : ComponentActivity() {
 
     companion object {
+        const val ACTION_LOCK_SCREEN = "com.arttttt.virtualpowerbutton.LOCK_SCREEN"
         const val ACTION_POWER_MENU = "com.arttttt.virtualpowerbutton.POWER_MENU"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        when (intent.action) {
-            ACTION_POWER_MENU -> handlePowerMenu()
-            else -> handleLockScreen()
+        val handled = when (intent.action) {
+            ACTION_POWER_MENU -> PowerButtonService.instance?.showPowerDialog()
+            // Default action (incl. launcher icon / shortcut) locks the screen.
+            else -> PowerButtonService.instance?.lockScreen()
+        }
+
+        if (handled == null) {
+            onServiceUnavailable()
         }
 
         finish()
     }
 
-    private fun handleLockScreen() {
-        PowerButtonService.instance?.lockScreen() ?: run {
-            Toast.makeText(
-                this,
-                R.string.accessibility_permission_required,
-                Toast.LENGTH_LONG
-            ).show()
+    private fun onServiceUnavailable() {
+        Toast.makeText(
+            this,
+            R.string.accessibility_permission_required,
+            Toast.LENGTH_LONG
+        ).show()
 
-            startActivity(
-                Intent(this, MainActivity::class.java).apply {
-                    flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
-                }
-            )
-        }
-    }
-
-    private fun handlePowerMenu() {
-        PowerButtonService.instance?.showPowerDialog() ?: run {
-            Toast.makeText(
-                this,
-                R.string.accessibility_permission_required,
-                Toast.LENGTH_LONG
-            ).show()
-
-            startActivity(
-                Intent(this, MainActivity::class.java).apply {
-                    flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
-                }
-            )
-        }
+        startActivity(mainActivityIntent(this))
     }
 }

@@ -9,22 +9,35 @@ class PowerButtonService : AccessibilityService() {
     companion object {
         var instance: PowerButtonService? = null
             private set
+
+        /**
+         * Single source of truth for whether the service is connected and able to
+         * perform global actions right now.
+         */
+        val isRunning: Boolean
+            get() = instance != null
     }
 
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {}
 
     override fun onInterrupt() {}
 
-    fun lockScreen() {
+    /**
+     * @return true if the system accepted the lock-screen action.
+     */
+    fun lockScreen(): Boolean {
         VibrationManager.vibrate(VibrationManager.Effect.LockScreen)
 
-        performGlobalAction(GLOBAL_ACTION_LOCK_SCREEN)
+        return performGlobalAction(GLOBAL_ACTION_LOCK_SCREEN)
     }
 
-    fun showPowerDialog() {
+    /**
+     * @return true if the system accepted the power-dialog action.
+     */
+    fun showPowerDialog(): Boolean {
         VibrationManager.vibrate(VibrationManager.Effect.Click)
 
-        performGlobalAction(GLOBAL_ACTION_POWER_DIALOG)
+        return performGlobalAction(GLOBAL_ACTION_POWER_DIALOG)
     }
 
     override fun onCreate() {

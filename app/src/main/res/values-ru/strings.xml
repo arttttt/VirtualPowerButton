@@ -1,0 +1,24 @@
+<resources>
+
+    <string name="app_name">Виртуальная кнопка питания</string>
+
+    <!-- Accessibility service -->
+    <string name="accessibility_service_description">Требуется для работы меню питания</string>
+    <string name="accessibility_service_summary">Позволяет приложению блокировать экран и открывать меню питания по запросу</string>
+    <string name="accessibility_permission_explanation">Для работы меню питания нужна служба специальных возможностей</string>
+    <string name="accessibility_permission_required">Включите службу специальных возможностей для меню питания</string>
+    <string name="request_accessibility">Включить спец. возможности</string>
+
+    <!-- Actions -->
+    <string name="lock_screen">Заблокировать экран</string>
+    <string name="power_menu">Меню питания</string>
+    <string name="power_button">Кнопка питания</string>
+
+    <!-- Quick Settings tiles -->
+    <string name="tile_setup_required">Нажмите для настройки</string>
+
+    <!-- Main screen, service enabled -->
+    <string name="service_enabled">Служба специальных возможностей включена</string>
+    <string name="usage_hint">Блокируйте экран или открывайте меню питания через плитки в шторке либо долгим нажатием на значок приложения.</string>
+
+</resources>

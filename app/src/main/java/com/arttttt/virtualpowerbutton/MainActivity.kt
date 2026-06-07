@@ -9,10 +9,9 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -29,17 +28,15 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.arttttt.virtualpowerbutton.ui.theme.VirtualPowerButtonTheme
 import com.arttttt.virtualpowerbutton.utils.AccessibilityManager
-import com.arttttt.virtualpowerbutton.utils.ShortcutManager
 
 class MainActivity : ComponentActivity() {
 
     private val accessibilityManager by lazy { AccessibilityManager(this) }
-    private val shortcutHelper by lazy { ShortcutManager(this) }
     private val viewModel: MainViewModel by viewModels {
         object : ViewModelProvider.Factory {
             @Suppress("UNCHECKED_CAST")
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                return MainViewModel(accessibilityManager, shortcutHelper) as T
+                return MainViewModel(accessibilityManager) as T
             }
         }
     }
@@ -56,7 +53,6 @@ class MainActivity : ComponentActivity() {
                 MainScreen(
                     uiState = uiState,
                     onRequestAccessibility = viewModel::requestAccessibilityPermission,
-                    onCreateShortcut = viewModel::createShortcut
                 )
             }
         }
@@ -73,7 +69,6 @@ class MainActivity : ComponentActivity() {
         modifier: Modifier = Modifier,
         uiState: MainUiState,
         onRequestAccessibility: () -> Unit,
-        onCreateShortcut: () -> Unit,
     ) {
         Scaffold(
             modifier = modifier,
@@ -100,10 +95,7 @@ class MainActivity : ComponentActivity() {
                         onRequestPermission = onRequestAccessibility
                     )
                 } else {
-                    ShortcutSection(
-                        isShortcutCreated = uiState.isShortcutCreated,
-                        onCreateShortcut = onCreateShortcut
-                    )
+                    ServiceEnabledSection()
                 }
             }
         }
@@ -131,7 +123,7 @@ class MainActivity : ComponentActivity() {
 
             ElevatedButton(
                 onClick = onRequestPermission,
-                modifier = Modifier.width(200.dp),
+                modifier = Modifier.widthIn(min = 200.dp),
             ) {
                 Text(text = stringResource(R.string.request_accessibility))
             }
@@ -139,32 +131,30 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
-    private fun ShortcutSection(
-        isShortcutCreated: Boolean,
-        onCreateShortcut: () -> Unit,
+    private fun ServiceEnabledSection(
         modifier: Modifier = Modifier
     ) {
         Column(
             modifier = modifier,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            FilledTonalButton(
-                onClick = onCreateShortcut,
-                enabled = !isShortcutCreated,
-                modifier = Modifier.width(200.dp)
-            ) {
-                Text(text = stringResource(R.string.create_shortcut))
-            }
+            Text(
+                text = stringResource(R.string.service_enabled),
+                style = MaterialTheme.typography.titleMedium,
+                textAlign = TextAlign.Center,
+                color = MaterialTheme.colorScheme.onSurface,
+            )
 
-            if (isShortcutCreated) {
-                Text(
-                    text = stringResource(R.string.shortcut_already_exists),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(top = 8.dp)
+            Text(
+                text = stringResource(R.string.usage_hint),
+                style = MaterialTheme.typography.bodyMedium,
+                textAlign = TextAlign.Center,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(
+                    horizontal = 24.dp,
+                    vertical = 12.dp,
                 )
-            }
+            )
         }
     }
 }

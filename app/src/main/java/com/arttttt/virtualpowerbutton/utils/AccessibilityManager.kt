@@ -1,8 +1,10 @@
 package com.arttttt.virtualpowerbutton.utils
 
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.provider.Settings
+import android.text.TextUtils
 import com.arttttt.virtualpowerbutton.PowerButtonService
 
 class AccessibilityManager(
@@ -10,13 +12,19 @@ class AccessibilityManager(
 ) {
     val isAccessibilityEnabled: Boolean
         get() {
-            val service = "${context.packageName}/${PowerButtonService::class.java.canonicalName}"
+            val expected = ComponentName(context, PowerButtonService::class.java)
+
             val enabledServices = Settings.Secure.getString(
                 context.contentResolver,
                 Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES
-            )
+            ) ?: return false
 
-            return enabledServices?.contains(service) == true
+            val splitter = TextUtils.SimpleStringSplitter(':')
+            splitter.setString(enabledServices)
+
+            return splitter.any { component ->
+                ComponentName.unflattenFromString(component) == expected
+            }
         }
 
     fun requestAccessibilityPermission() {

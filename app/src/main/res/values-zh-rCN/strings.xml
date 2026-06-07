@@ -1,0 +1,24 @@
+<resources>
+
+    <string name="app_name">虚拟电源键</string>
+
+    <!-- Accessibility service -->
+    <string name="accessibility_service_description">电源菜单功能所必需</string>
+    <string name="accessibility_service_summary">允许应用锁定屏幕并按需打开电源菜单</string>
+    <string name="accessibility_permission_explanation">电源菜单功能需要无障碍服务</string>
+    <string name="accessibility_permission_required">请为电源菜单启用无障碍服务</string>
+    <string name="request_accessibility">启用无障碍服务</string>
+
+    <!-- Actions -->
+    <string name="lock_screen">锁定屏幕</string>
+    <string name="power_menu">电源菜单</string>
+    <string name="power_button">电源键</string>
+
+    <!-- Quick Settings tiles -->
+    <string name="tile_setup_required">点按以设置</string>
+
+    <!-- Main screen, service enabled -->
+    <string name="service_enabled">无障碍服务已启用</string>
+    <string name="usage_hint">通过快捷设置磁贴，或长按应用图标，即可锁定屏幕或打开电源菜单。</string>
+
+</resources>

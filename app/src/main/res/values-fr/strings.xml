@@ -1,0 +1,24 @@
+<resources>
+
+    <string name="app_name">Bouton d\'alimentation virtuel</string>
+
+    <!-- Accessibility service -->
+    <string name="accessibility_service_description">Requis pour le menu d\'alimentation</string>
+    <string name="accessibility_service_summary">Permet à l\'application de verrouiller l\'écran et d\'ouvrir le menu d\'alimentation à la demande</string>
+    <string name="accessibility_permission_explanation">Le service d\'accessibilité est requis pour le menu d\'alimentation</string>
+    <string name="accessibility_permission_required">Veuillez activer le service d\'accessibilité pour le menu d\'alimentation</string>
+    <string name="request_accessibility">Activer l\'accessibilité</string>
+
+    <!-- Actions -->
+    <string name="lock_screen">Verrouiller l\'écran</string>
+    <string name="power_menu">Menu d\'alimentation</string>
+    <string name="power_button">Bouton d\'alimentation</string>
+
+    <!-- Quick Settings tiles -->
+    <string name="tile_setup_required">Appuyez pour configurer</string>
+
+    <!-- Main screen, service enabled -->
+    <string name="service_enabled">Service d\'accessibilité activé</string>
+    <string name="usage_hint">Verrouillez l\'écran ou ouvrez le menu d\'alimentation depuis les tuiles des Réglages rapides, ou en appuyant longuement sur l\'icône de l\'application.</string>
+
+</resources>

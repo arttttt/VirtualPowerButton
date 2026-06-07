@@ -1,0 +1,24 @@
+<resources>
+
+    <string name="app_name">Virtueller Power-Button</string>
+
+    <!-- Accessibility service -->
+    <string name="accessibility_service_description">Erforderlich für das Power-Menü</string>
+    <string name="accessibility_service_summary">Ermöglicht der App, den Bildschirm zu sperren und das Power-Menü bei Bedarf zu öffnen</string>
+    <string name="accessibility_permission_explanation">Für das Power-Menü ist der Bedienungshilfen-Dienst erforderlich</string>
+    <string name="accessibility_permission_required">Bitte aktiviere den Bedienungshilfen-Dienst für das Power-Menü</string>
+    <string name="request_accessibility">Bedienungshilfen aktivieren</string>
+
+    <!-- Actions -->
+    <string name="lock_screen">Bildschirm sperren</string>
+    <string name="power_menu">Power-Menü</string>
+    <string name="power_button">Power-Button</string>
+
+    <!-- Quick Settings tiles -->
+    <string name="tile_setup_required">Zum Einrichten tippen</string>
+
+    <!-- Main screen, service enabled -->
+    <string name="service_enabled">Bedienungshilfen-Dienst aktiviert</string>
+    <string name="usage_hint">Sperre den Bildschirm oder öffne das Power-Menü über die Schnelleinstellungen-Kacheln oder durch langes Drücken des App-Symbols.</string>
+
+</resources>

@@ -1,0 +1,24 @@
+<resources>
+
+    <string name="app_name">Botón de encendido virtual</string>
+
+    <!-- Accessibility service -->
+    <string name="accessibility_service_description">Necesario para el menú de encendido</string>
+    <string name="accessibility_service_summary">Permite que la app bloquee la pantalla y abra el menú de encendido cuando se solicite</string>
+    <string name="accessibility_permission_explanation">Se necesita el servicio de accesibilidad para el menú de encendido</string>
+    <string name="accessibility_permission_required">Activa el servicio de accesibilidad para el menú de encendido</string>
+    <string name="request_accessibility">Activar accesibilidad</string>
+
+    <!-- Actions -->
+    <string name="lock_screen">Bloquear pantalla</string>
+    <string name="power_menu">Menú de encendido</string>
+    <string name="power_button">Botón de encendido</string>
+
+    <!-- Quick Settings tiles -->
+    <string name="tile_setup_required">Toca para configurar</string>
+
+    <!-- Main screen, service enabled -->
+    <string name="service_enabled">Servicio de accesibilidad activado</string>
+    <string name="usage_hint">Bloquea la pantalla o abre el menú de encendido desde los mosaicos de Ajustes rápidos, o manteniendo pulsado el icono de la app.</string>
+
+</resources>

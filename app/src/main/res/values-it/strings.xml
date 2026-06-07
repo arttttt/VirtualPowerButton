@@ -1,0 +1,24 @@
+<resources>
+
+    <string name="app_name">Pulsante di accensione virtuale</string>
+
+    <!-- Accessibility service -->
+    <string name="accessibility_service_description">Necessario per il menu di accensione</string>
+    <string name="accessibility_service_summary">Consente all\'app di bloccare lo schermo e aprire il menu di accensione su richiesta</string>
+    <string name="accessibility_permission_explanation">Il servizio di accessibilità è necessario per il menu di accensione</string>
+    <string name="accessibility_permission_required">Attiva il servizio di accessibilità per il menu di accensione</string>
+    <string name="request_accessibility">Attiva accessibilità</string>
+
+    <!-- Actions -->
+    <string name="lock_screen">Blocca schermo</string>
+    <string name="power_menu">Menu di accensione</string>
+    <string name="power_button">Pulsante di accensione</string>
+
+    <!-- Quick Settings tiles -->
+    <string name="tile_setup_required">Tocca per configurare</string>
+
+    <!-- Main screen, service enabled -->
+    <string name="service_enabled">Servizio di accessibilità attivato</string>
+    <string name="usage_hint">Blocca lo schermo o apri il menu di accensione dalle schede delle Impostazioni rapide o tenendo premuta l\'icona dell\'app.</string>
+
+</resources>

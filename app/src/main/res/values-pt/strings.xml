@@ -1,0 +1,24 @@
+<resources>
+
+    <string name="app_name">Botão de energia virtual</string>
+
+    <!-- Accessibility service -->
+    <string name="accessibility_service_description">Necessário para o menu de energia</string>
+    <string name="accessibility_service_summary">Permite que o app bloqueie a tela e abra o menu de energia quando solicitado</string>
+    <string name="accessibility_permission_explanation">O serviço de acessibilidade é necessário para o menu de energia</string>
+    <string name="accessibility_permission_required">Ative o serviço de acessibilidade para o menu de energia</string>
+    <string name="request_accessibility">Ativar acessibilidade</string>
+
+    <!-- Actions -->
+    <string name="lock_screen">Bloquear tela</string>
+    <string name="power_menu">Menu de energia</string>
+    <string name="power_button">Botão de energia</string>
+
+    <!-- Quick Settings tiles -->
+    <string name="tile_setup_required">Toque para configurar</string>
+
+    <!-- Main screen, service enabled -->
+    <string name="service_enabled">Serviço de acessibilidade ativado</string>
+    <string name="usage_hint">Bloqueie a tela ou abra o menu de energia pelos blocos das Configurações rápidas ou mantendo pressionado o ícone do app.</string>
+
+</resources>
