@@ -13,5 +13,9 @@
     <string name="power_button">Power Button</string>
     <string name="accessibility_permission_explanation">Accessibility service is required for power menu functionality</string>
     <string name="request_accessibility">Enable Accessibility</string>
+    <string name="tile_setup_required">Tap to set up</string>
+    <string name="shortcut_add">Add home screen icon</string>
+    <string name="shortcut_remove">Remove home screen icon</string>
+    <string name="shortcut_hint">Adds a home screen icon that locks the screen when tapped</string>
 
 </resources>

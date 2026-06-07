@@ -8,52 +8,47 @@ import android.service.quicksettings.TileService
 import androidx.core.service.quicksettings.PendingIntentActivityWrapper
 import androidx.core.service.quicksettings.TileServiceCompat
 import com.arttttt.virtualpowerbutton.utils.VibrationManager
+import com.arttttt.virtualpowerbutton.utils.mainActivityIntent
 
 class PowerMenuTileService : TileService() {
 
     override fun onStartListening() {
         super.onStartListening()
 
-        qsTile ?: return
+        val tile = qsTile ?: return
 
-        qsTile.icon = Icon.createWithResource(applicationContext, R.drawable.ic_power)
-        qsTile.label = getString(R.string.power_button)
-        qsTile.state = Tile.STATE_INACTIVE
-        qsTile.updateTile()
+        tile.icon = Icon.createWithResource(applicationContext, R.drawable.ic_power)
+        tile.label = getString(R.string.power_button)
+        tile.state = Tile.STATE_INACTIVE
+        tile.subtitle = when {
+            PowerButtonService.isRunning -> null
+            else -> getString(R.string.tile_setup_required)
+        }
+        tile.updateTile()
     }
 
     override fun onClick() {
         super.onClick()
 
-        if (PowerButtonService.instance != null) {
-            val intent = Intent(this, PowerMenuActivity::class.java).apply {
-                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
-            }
-
-            val wrapper = PendingIntentActivityWrapper(
-                this,
-                0,
-                intent,
-                PendingIntent.FLAG_ONE_SHOT,
-                false
-            )
-
-            TileServiceCompat.startActivityAndCollapse(this, wrapper)
+        if (PowerButtonService.isRunning) {
+            launchAndCollapse(Intent(this, PowerMenuActivity::class.java))
             VibrationManager.vibrate(VibrationManager.Effect.Click)
         } else {
-            val intent = Intent(this, MainActivity::class.java).apply {
-                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
-            }
-
-            val wrapper = PendingIntentActivityWrapper(
-                this,
-                0,
-                intent,
-                PendingIntent.FLAG_ONE_SHOT,
-                false
-            )
-
-            TileServiceCompat.startActivityAndCollapse(this, wrapper)
+            launchAndCollapse(mainActivityIntent(this))
         }
+    }
+
+    private fun launchAndCollapse(intent: Intent) {
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+
+        val wrapper = PendingIntentActivityWrapper(
+            this,
+            0,
+            intent,
+            PendingIntent.FLAG_ONE_SHOT,
+            false,
+        )
+
+        TileServiceCompat.startActivityAndCollapse(this, wrapper)
     }
 }
